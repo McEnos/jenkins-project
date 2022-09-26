@@ -18,6 +18,11 @@ pipeline{
             }
         }
     }
+    post{
+       success{
+          archiveArtifacts 'build/libs/*.jar'
+       }
+    }
   /*   post{
         always{
 
