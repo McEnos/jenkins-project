@@ -4,6 +4,7 @@ pipeline{
         stage('build'){
             steps{
                 echo 'Building the application............'
+                sh "./gradlew build clean"
                 sh "./gradlew build -x test"
             }
         }
@@ -20,7 +21,7 @@ pipeline{
     }
     post{
        success{
-          archiveArtifacts 'build/libs/*.jar'
+          archiveArtifacts 'build/libs/jenkins-project.jar'
        }
     }
   /*   post{
